@@ -10,8 +10,8 @@
 <meta name="application-name" content="Astor Fashion (pilot)">
 <meta name="theme-color" content="#ffffff">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=1">
-<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=2">
 <title>Astor Fashion (pilot)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -109,27 +109,8 @@ td:last-child,th:last-child{text-align:right}
 .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .btns .btn{flex:1 1 140px}
 
-/* Models / Studio */
 .page-h{padding:32px 20px 8px}
-.page-h .eyebrow{color:var(--gold)}
 .page-h h2{font-size:34px;margin:10px 0}
-.page-h p{font-size:15px;line-height:1.7;color:var(--muted);font-weight:300;margin:0}
-.models{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:20px}
-.models .ph:nth-child(2){margin-top:28px}
-.cols{display:grid;gap:18px;padding:0 20px}
-.col{border-top:1px solid var(--ink);padding-top:12px}
-.col b{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;margin-bottom:6px}
-.col span{font-size:14px;line-height:1.6;color:var(--muted);font-weight:300}
-.pad{padding:0 20px 36px}
-.studio{background:var(--ink);color:var(--stone);min-height:60vh}
-.studio .page-h .eyebrow{color:var(--gold-light)}
-.studio .page-h p{color:#CFCBC4}
-.shoots{display:grid;gap:26px;padding:24px 20px}
-.shoot .ph{aspect-ratio:4/3;background:#2A2826;color:#A8A49D;margin-bottom:10px}
-.shoot b{display:block;font-family:var(--serif);font-weight:400;font-size:21px;margin-bottom:4px}
-.shoot span{font-size:14px;line-height:1.6;color:#CFCBC4;font-weight:300}
-.shoot em{display:block;font-style:normal;font-size:13px;color:var(--gold-light);margin-top:6px}
-
 /* Bag */
 .empty{padding:60px 24px;text-align:center;color:var(--muted)}
 .empty h2{color:var(--ink);font-size:26px;margin-bottom:10px}
@@ -144,7 +125,7 @@ footer{padding:28px 20px 20px;border-top:1px solid var(--line);font-size:13px;co
 footer .logo{font-size:20px;letter-spacing:6px;padding:0;display:block;margin-bottom:6px;color:var(--ink)}
 
 /* Tab bar */
-.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);padding-bottom:var(--bottom)}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);padding-bottom:var(--bottom)}
 .tabs button{height:60px;border:0;background:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--soft);cursor:pointer;position:relative}
 .tabs button.on{color:var(--ink)}
 .tabs svg{width:22px;height:22px}
@@ -259,37 +240,10 @@ footer .logo{font-size:20px;letter-spacing:6px;padding:0;display:block;margin-bo
     </div>
   </section>
 
-  <!-- MODELS -->
-  <section class="view" id="v-models" hidden>
-    <div class="page-h">
-      <span class="eyebrow">Modelling agency</span>
-      <h2>ASTOR Models</h2>
-      <p>We represent new faces and experienced models for fashion campaigns, lookbooks, e-commerce, events and brand content.</p>
-    </div>
-    <div class="models">
-      <span class="ph">[Model photo]</span><span class="ph" style="background:var(--sand)">[Model photo]</span><span class="ph">[Model photo]</span>
-    </div>
-    <div class="cols">
-      <div class="col"><b>For brands</b><span>Browse our models and book talent for your next shoot or event.</span></div>
-      <div class="col"><b>For models</b><span>Send us your details and photos to be considered for representation.</span></div>
-    </div>
-    <div class="pad">
-      <div class="btns">
-        <a class="btn" href="mailto:[YOUR EMAIL]?subject=Book%20a%20model">Book a model</a>
-        <a class="btn ghost" href="mailto:[YOUR EMAIL]?subject=Apply%20to%20join%20ASTOR%20Models">Apply to join</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- STUDIO -->
-  <section class="view studio" id="v-studio" hidden>
-    <div class="page-h">
-      <span class="eyebrow">Photography</span>
-      <h2>ASTOR Studio</h2>
-      <p>Professional fashion and product photography for brands, boutiques and models, in our studio or on location.</p>
-      <div class="btns"><a class="btn light" href="mailto:[YOUR EMAIL]?subject=Book%20a%20shoot">Book a shoot</a></div>
-    </div>
-    <div class="shoots" id="shoots"></div>
+  <!-- SAVED -->
+  <section class="view" id="v-saved" hidden>
+    <div class="page-h"><h2>Saved</h2></div>
+    <div class="sec"><div class="grid" id="savedGrid"></div></div>
   </section>
 
   <!-- BAG -->
@@ -309,11 +263,8 @@ footer .logo{font-size:20px;letter-spacing:6px;padding:0;display:block;margin-bo
   <button type="button" data-go="shop" class="on">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 4l9 6.5V20H3z"/><path d="M9.5 20v-6h5v6"/></svg>Shop
   </button>
-  <button type="button" data-go="models">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Models
-  </button>
-  <button type="button" data-go="studio">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Studio
+  <button type="button" data-go="saved">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg>Saved
   </button>
   <button type="button" data-go="bag">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>Bag
@@ -335,12 +286,6 @@ footer .logo{font-size:20px;letter-spacing:6px;padding:0;display:block;margin-bo
     {id:7,name:'Leather tote',cat:'Bags',g:'Women'},
     {id:8,name:'Runner trainers',cat:'Trainers',g:'Men'}
   ];
-  var SHOOTS=[
-    ['E-commerce','Clean product shots on white or neutral backgrounds, ready for your online store.'],
-    ['Lookbook & campaign','Styled fashion shoots with models, for collections, adverts and social media.'],
-    ['Jewellery & accessories','Detailed close-up photography that shows finish, sparkle and craftsmanship.'],
-    ['Model portfolios','Professional test shoots and portfolio images for new and working models.']
-  ];
   var RATES=['United Arab Emirates','GCC','United Kingdom & Europe','USA & Canada','Rest of the world'];
 
   function load(k,d){try{var v=localStorage.getItem('astor.'+k);return v?JSON.parse(v):d}catch(e){return d}}
@@ -360,15 +305,16 @@ footer .logo{font-size:20px;letter-spacing:6px;padding:0;display:block;margin-bo
     var list=PRODUCTS.filter(function(p){return f==='All'||f==='Designers'||p.cat===f||p.g===f});
     $('gridTitle').textContent=f==='All'?'New in':f;
     $('showAll').hidden=f==='All';
-    $('grid').innerHTML=list.length?list.map(function(p){
+    $('grid').innerHTML=list.length?list.map(card).join('')
+      :'<p style="color:var(--muted);font-weight:300">Pieces for this category arrive with the catalogue.</p>';
+  }
+  function card(p){
       var on=state.wish.indexOf(p.id)>-1;
       return '<article class="prod"><div class="ph">[Product photo]<button class="ib heart'+(on?' on':'')+'" type="button" data-wish="'+p.id+'" aria-pressed="'+on+'" aria-label="Save '+esc(p.name)+' to wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg></button></div>'+
       '<span class="brand">[DESIGNER]</span><span class="pname">'+esc(p.name)+'</span><span class="price">'+state.cur+' [PRICE]</span>'+
-      '<button class="add" type="button" data-add="'+p.id+'">Add to bag</button></article>'}).join('')
-      :'<p style="color:var(--muted);font-weight:300">Pieces for this category arrive with the catalogue.</p>';
-  }
+      '<button class="add" type="button" data-add="'+p.id+'">Add to bag</button></article>'}
+  function renderSaved(){var l=PRODUCTS.filter(function(p){return state.wish.indexOf(p.id)>-1});$('savedGrid').innerHTML=l.length?l.map(card).join(''):'<div class="empty" style="grid-column:1/-1"><p>Tap the heart on any piece to save it here.</p></div>'}
   function renderRates(){$('rates').innerHTML=RATES.map(function(r){return '<tr><td>'+r+'</td><td style="color:#CFCBC4">[DAYS]</td><td>[RATE]</td></tr>'}).join('')}
-  function renderShoots(){$('shoots').innerHTML=SHOOTS.map(function(s){return '<div class="shoot"><div class="ph">[Sample shot]</div><b>'+esc(s[0])+'</b><span>'+esc(s[1])+'</span><em>From '+state.cur+' [PRICE]</em></div>'}).join('')}
   function renderBag(){
     var n=state.bag.reduce(function(a,b){return a+b.q},0);
     $('bagCount').textContent=n;$('bagCount').hidden=!n;
@@ -381,12 +327,12 @@ footer .logo{font-size:20px;letter-spacing:6px;padding:0;display:block;margin-bo
   }
   function go(v){
     state.view=v;
-    ['shop','models','studio','bag'].forEach(function(k){$('v-'+k).hidden=k!==v});
+    ['shop','saved','bag'].forEach(function(k){$('v-'+k).hidden=k!==v});
     document.querySelectorAll('.tabs button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-go')===v)});
     $('cats').hidden=v!=='shop';
     window.scrollTo(0,0);
   }
-  function all(){renderCats();renderGrid();renderShoots();renderBag()}
+  function all(){renderCats();renderGrid();renderSaved();renderBag()}
 
   document.addEventListener('click',function(e){
     var t=e.target.closest('button,a');if(!t)return;
@@ -394,7 +340,7 @@ footer .logo{font-size:20px;letter-spacing:6px;padding:0;display:block;margin-bo
     if(g){e.preventDefault();go(g)}
     if(f){state.filter=f;renderCats();renderGrid();if(state.view!=='shop')go('shop');var el=$('newIn');setTimeout(function(){el.scrollIntoView({behavior:'smooth'})},20)}
     if(a){a=+a;var l=state.bag.filter(function(x){return x.id===a})[0];if(l)l.q++;else state.bag.push({id:a,q:1});save('bag',state.bag);renderBag();toast('Added to bag')}
-    if(w){w=+w;var i=state.wish.indexOf(w);if(i>-1)state.wish.splice(i,1);else state.wish.push(w);save('wish',state.wish);renderGrid();toast(i>-1?'Removed from wishlist':'Saved to wishlist')}
+    if(w){w=+w;var i=state.wish.indexOf(w);if(i>-1)state.wish.splice(i,1);else state.wish.push(w);save('wish',state.wish);renderGrid();renderSaved();toast(i>-1?'Removed from wishlist':'Saved to wishlist')}
     if(r){r=+r;state.bag=state.bag.filter(function(x){return x.id!==r});save('bag',state.bag);renderBag()}
     if(m)toast(m);
   });

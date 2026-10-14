@@ -1,5 +1,5 @@
 # Astor Fashion (pilot)
 
-The ASTOR Fashion pilot app: womenswear, menswear, ASTOR Models and ASTOR Studio.
+The ASTOR Fashion pilot shopping app: womenswear and menswear, delivered worldwide.
 
-Live at https://leehenrynelson.github.io/astor-fashion/
+Live at https://leehenrynelson.github.io/Astor-fashion/
